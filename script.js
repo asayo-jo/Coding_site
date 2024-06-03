@@ -3,24 +3,7 @@ $(function(){
     $(this).next('.accordion_inner').slideToggle();
     $(this).toggleClass("open");
   });
-});
 
-
-
-$(window).scroll(function() {
-  $('.fade-in').each(function() {
-    var pos = $(this).offset().top;
-    var scroll = $(window).scrollTop();
-    var wHeight = $(window).height();
-    if (scroll > pos - wHeight + wHeight/100){
-      $(this).addClass('inview');
-    }
-  });
-});
-
-
-
-$(function() {
   const swiper = new Swiper('.swiper', {
     slidesPerView: 1,
     breakpoints: {
@@ -44,5 +27,16 @@ $(function() {
     scrollbar: {
       el: ".swiper-scrollbar"
     }
+  });
+
+  $(window).scroll(function() {
+    $('.fade-in').each(function() {
+      var pos = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var wHeight = $(window).height();
+      if (scroll > pos - wHeight + wHeight/100){
+        $(this).addClass('inview');
+      }
+    });
   });
 });
